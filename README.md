@@ -1,8 +1,21 @@
 # Genetic-Algorithm-for-Drawing
 
-![pa (1)](https://user-images.githubusercontent.com/87468948/169909057-f7b19021-7323-43b2-bab8-7c7ee6ffd5ee.png)  
+<p align="center">
+  <img 
+    width="300"
+    height="300"
+    src="https://user-images.githubusercontent.com/87468948/169909057-f7b19021-7323-43b2-bab8-7c7ee6ffd5ee.png"
+  >
+</p>
 
-![img20000 (1)](https://user-images.githubusercontent.com/87468948/169909083-a2ac7050-d9e4-4798-b4fa-f30e07b32cc5.png)  
+<p align="center">
+  <img 
+    width="300"
+    height="300"
+    src="https://user-images.githubusercontent.com/87468948/169909083-a2ac7050-d9e4-4798-b4fa-f30e07b32cc5.png"
+  >
+</p>
+
 
 
 ## What it does?  
