@@ -10,8 +10,8 @@
 
 <p align="center">
   <img 
-    width="300"
-    height="300"
+    width="500"
+    height="500"
     src="https://user-images.githubusercontent.com/87468948/169909083-a2ac7050-d9e4-4798-b4fa-f30e07b32cc5.png"
   >
 </p>
