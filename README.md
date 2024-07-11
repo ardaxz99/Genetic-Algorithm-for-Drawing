@@ -1,6 +1,6 @@
 # Genetic Algorithm for Drawing
 
-This repository presents a genetic algorithm designed to mimic a reference image using random circles of different colors, sizes, and opacities. The algorithm evolves a population of candidate solutions over several generations to closely match the reference image by optimizing a fitness function.
+This repository presents a genetic algorithm designed to mimic a reference image using random circles of different colors, sizes, and opacities. The algorithm evolves a population of candidate solutions over several generations to closely match the reference image by optimizing a fitness function. 
 
 ## Table of Contents
 
@@ -21,7 +21,14 @@ This repository presents a genetic algorithm designed to mimic a reference image
 
 ## Introduction
 
-A genetic algorithm (GA) is a search heuristic inspired by the process of natural selection. It is commonly used to find approximate solutions to optimization and search problems. This project utilizes a GA to approximate a reference image using randomly generated circles.
+A genetic algorithm (GA) is a search heuristic inspired by the process of natural selection. It is commonly used to find approximate solutions to optimization and search problems. This project utilizes a GA to approximate a reference image using randomly generated circles. The main steps in a genetic algorithm are:
+1. Initialization: Start with a randomly generated population of individuals.
+2. Evaluation: Assess the fitness of each individual in the population.
+3. Selection: Select individuals based on their fitness to become parents for the next generation.
+4. Crossover: Combine pairs of parents to produce offspring, introducing genetic diversity.
+5. Mutation: Apply random changes to offspring to maintain genetic diversity.
+6. Replacement: Form a new population by replacing some or all of the old population with the new offspring.
+7. Termination: Repeat steps 2-6 until a stopping criterion is met (e.g., a maximum number of generations or a satisfactory fitness level).
 
 ## Genetic Algorithm Components
 
@@ -29,6 +36,9 @@ A genetic algorithm (GA) is a search heuristic inspired by the process of natura
 - **Gene**: A single circle within a chromosome.
 - **Population**: A collection of chromosomes (solutions).
 - **Fitness Function**: Measures how closely a chromosome matches the reference image, with lower values indicating a better match.
+- **Selection**: Uses tournament selection to choose the best chromosomes for reproduction.
+- **Crossover**: Swaps genes between pairs of chromosomes to create new offspring.
+- **Mutation**: Randomly alters genes within chromosomes to introduce new variations.
 
 ## Configuration
 
@@ -87,6 +97,16 @@ The algorithm is configured through several parameters:
 4. Plot Generated Image:
    - After each N iterations, the generated image is plotted and saved. The fitness values across generations are plotted and saved as well.
 
+
+## Results
+
+Below are the reference image and an example generated image:
+
+### Reference Image
+![Reference Image](reference.png)
+
+### Generated Image
+![Generated Image](example_output.png)
 
 ## Installation
 
