@@ -1,60 +1,127 @@
-# Genetic-Algorithm-for-Drawing
+# Genetic Algorithm for Drawing
 
-<p align="center">
-  <img 
-    width="200"
-    height="200"
-    src="https://user-images.githubusercontent.com/87468948/169909057-f7b19021-7323-43b2-bab8-7c7ee6ffd5ee.png"
-  >
-</p>
+This repository presents a genetic algorithm designed to mimic a reference image using random circles of different colors, sizes, and opacities. The algorithm evolves a population of candidate solutions over several generations to closely match the reference image by optimizing a fitness function.
 
-<p align="center">
-  <img 
-    width="432"
-    height="288"
-    src="https://user-images.githubusercontent.com/87468948/169909083-a2ac7050-d9e4-4798-b4fa-f30e07b32cc5.png"
-  >
-</p>
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Genetic Algorithm Components](#genetic-algorithm-components)
+- [Configuration](#configuration)
+- [Main Functions](#main-functions)
+  - [Initialization](#initialization)
+  - [Fitness Evaluation](#fitness-evaluation)
+  - [Crossover and Mutation](#crossover-and-mutation)
+  - [Selection](#selection)
+- [Algorithm Steps](#algorithm-steps)
+- [Results](#results)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [License](#license)
+
+## Introduction
+
+A genetic algorithm (GA) is a search heuristic inspired by the process of natural selection. It is commonly used to find approximate solutions to optimization and search problems. This project utilizes a GA to approximate a reference image using randomly generated circles.
+
+## Genetic Algorithm Components
+
+- **Chromosome**: A single solution represented by a list of circles. Each circle is defined by its position (x, y), radius, color (R, G, B), and opacity (alpha).
+- **Gene**: A single circle within a chromosome.
+- **Population**: A collection of chromosomes (solutions).
+- **Fitness Function**: Measures how closely a chromosome matches the reference image, with lower values indicating a better match.
+
+## Configuration
+
+The algorithm is configured through several parameters:
+- `img_width` and `img_height`: Dimensions of the images to be processed.
+- `max_circle_radius`: Maximum radius of the circles.
+- `num_genes`: Number of circles in each chromosome.
+- `tm_size`: Tournament size for selection.
+- `mutation_type`: Mutation strategy (guided or unguided).
+- `mutation_prob`: Probability of mutation.
+- `num_generation`: Maximum number of generations.
+- `num_inds`: Number of individuals in the population.
+- `frac_elites` and `frac_parents`: Fractions of elites and parents in the population.
+- `early_stop`: Whether to stop early if a certain fitness level is reached.
+- `show_img`: Whether to display intermediate images.
+- `save_image_per_generation`: Determines how often to save images during evolution.
+
+## Main Functions
+
+### Initialization
+
+- `init_population(num_inds, num_genes)`: Initializes the population with random chromosomes. Each chromosome is a list of circles with random attributes (position, radius, color, opacity).
+
+### Fitness Evaluation
+
+- `evaluate_fitness(pop, num_inds, num_genes, background, generation)`: Evaluates the fitness of the population by drawing the circles on a canvas and comparing the result to the reference image using a sum of squared differences.
+
+### Crossover and Mutation
+
+- `crossover(parents)`: Combines pairs of parent chromosomes to create offspring, introducing genetic diversity.
+- `mutation(parents_after_crossover)`: Applies mutations to the parents. If the mutation is guided, the changes are made relative to the current gene values.
+
+### Selection
+
+- `tournament_selection(population)`: Selects parents using tournament selection, preserving a certain number of elites.
+
+## Algorithm Steps
+
+1. Initialize population:
+   - The population is initialized with random chromosomes.
+
+2. Evaluate initial fitness:
+   - The initial fitness of the population is evaluated.
+
+3. Genetic Algorithm Loop:
+   - If `early_stop` is enabled, the loop continues until a satisfactory fitness level is reached.
+   - Otherwise, the loop runs for a specified number of generations.
+   - In each generation:
+     - Selection: Selects parents and elites.
+     - Crossover: Creates offspring from parents.
+     - Mutation: Applies mutations to the offspring.
+     - Create new population: Combines elites and mutated offspring.
+     - Evaluate fitness: Evaluates the fitness of the new population.
+     - Output fitness: Outputs the current fitness and generation number.
+
+4. Plot Generated Image:
+   - After each N iterations, the generated image is plotted and saved. The fitness values across generations are plotted and saved as well.
 
 
+## Installation
 
-## What it does?  
+### Prerequisites
 
-The computer iteratively attempts to mimic an input pictures through drawing it with circles of varying radii and colours, and continuously improve its accuracy based on a generic genetic algorithm.  
+- Python 3.8 or higher
+- pip (Python package installer)
 
-## How it works?  
+### Setting Up a Virtual Environment
 
-1-Initialize a population.  
-2-Evaluates the fitness of the population.  
-3-Select some individuals as elite individuals and directly pass them to the next generation. Parents are selected among the other individuals.  
-4-Tournament selection method is preferred.  
-5-Cross over and mutation are applied.  
-6-After cross-over and mutation, the offspring population is formed.  
-7-The fitness of the new population is evaluated, and the same process starts again.  
+```bash
+python -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
+```
 
-## The parameters in the python file  
+### Installing Dependencies
 
-**early_stop** = Decide whether the algorithm stops automatically when the fitness of the population exceeds a treshold value.  
-**show_img** = Decide whether to show images of best individual in the population for each generation.  
-**update_image_per_generation** = Update shown image for each "update_image_per_generation" number of generation.  
-**image_save_path** = Path of the saved/created images. The corresponding image of the best individual in the population at every 1000th generation is created.  
-The fitness plot is also generated after "num_generation" step.
-**source_img_path** = Path of the original image.  
-**max_circle_radius** = Maximum radius of circles  
-**num_genes** = Number of circles for each individual  
-**tm_size** = Tournament size  
-**mutation_type** = Decide whether apply random mutations or guided mutations  
-**mutation_prob** = Mutation probability  
-**num_generation** = It is similar to the epoch number in neural networks. The algorithm stops after reaching this value.  
-**num_inds** = Number of individuals in the population  
-**frac_elites** = Fraction of elite individuals in the population  
-**frac_parents** = Fraction of selected parents for cross-over and mutation in the population  
+```
+git clone https://github.com/ardaxz99/Genetic-Algorithm-Drawing.git
+cd Genetic-Algorithm-Drawing
+pip install -r requirements.txt
+```
 
-## Challenges we ran into  
+## Usage
 
-The most difficult component was attempting to improve our fitness function, cross-breeding function, and mutation function, as the simulation takes a long time and it is quite difficult to obtain substantial results in an hour. As a result, we had to be quite cautious about when we tested.  
-We were unable to obtain a clearly optimum answer in the end, but we feel that with future refinements, the method should be able to yield improved results.  
+Execute the main script to reproduce the results:
 
-## How to run it  
+```
+python main.ipynb
+```
 
-Change image paths, set the parameters and you are good to go.  
+## Contributors
+
+- **Arda Baris Basaran**
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
