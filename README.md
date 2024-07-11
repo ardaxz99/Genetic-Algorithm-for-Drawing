@@ -125,7 +125,7 @@ source env/bin/activate  # On Windows use `env\Scripts\activate`
 ### Installing Dependencies
 
 ```
-git clone https://github.com/ardaxz99/Genetic-Algorithm-Drawing.git
+git clone https://github.com/ardaxz99/Genetic-Algorithm-for-Drawing.git
 cd Genetic-Algorithm-Drawing
 pip install -r requirements.txt
 ```
