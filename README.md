@@ -103,10 +103,10 @@ The algorithm is configured through several parameters:
 Below are the reference image and an example generated image:
 
 ### Reference Image
-![Reference Image](reference.png)
+<img src="reference.png" alt="Reference Image" width="180" height="180">
 
 ### Generated Image
-![Generated Image](example_output.png)
+<img src="example_output.png" alt="Generated Image" width="180" height="180">
 
 ## Installation
 
