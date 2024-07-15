@@ -95,7 +95,7 @@ The algorithm is configured through several parameters:
      - Output fitness: Outputs the current fitness and generation number.
 
 4. Plot Generated Image:
-   - After each N iterations, the generated image is plotted and saved. The fitness values across generations are plotted and saved as well.
+   - After each N iterations, the generated image is plotted and saved. The fitness values across generations are printed as well.
 
 
 ## Results
